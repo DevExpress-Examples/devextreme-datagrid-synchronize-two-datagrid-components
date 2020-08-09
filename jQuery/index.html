@@ -38,8 +38,6 @@
 
             dataGrid1.option({
                 onOptionChanged: function (e) {
-                    console.log(e.fullName);
-
                     if (e.fullName === "paging.pageSize") {
                         dataGrid2.pageSize(e.value);
                     } else if (e.fullName === "paging.pageIndex") {
@@ -48,15 +46,14 @@
                     else if (e.fullName.includes("sortOrder")) {
                         let colIdx = parseInt(e.fullName.slice(8, 9)),
                             dataField = e.component.columnOption(colIdx, "dataField");
-                        let res = e.component.state();
 
-                        if (prevColSorted) {
-                            dataField = dataGrid2.columnOption(prevColSorted, "sortOrder", null);
+                        dataGrid2.beginUpdate();
+                        if (prevColSorted && prevColSorted !== dataField) {
+                            dataGrid2.columnOption(prevColSorted, "sortOrder", null);
                         }
 
-                        if (prevColSorted !== dataField) {
-                            dataGrid2.columnOption(dataField, "sortOrder", e.value);
-                        }
+                        dataGrid2.columnOption(dataField, "sortOrder", e.value);
+                        dataGrid2.endUpdate();
 
                         prevColSorted = dataField;
 
@@ -75,8 +72,6 @@
                     dataGrid2.selectRows(e.currentSelectedRowKeys)
                 }
             });
-
-
         });
 
 
@@ -86,9 +81,11 @@
                 keyExpr: "ID",
                 showBorders: true,
                 paging: {
-                    pageSize: 10
+                    pageSize: 10,
+                    enabled: true
                 },
                 pager: {
+                    visible: true,
                     showPageSizeSelector: true,
                     allowedPageSizes: [5, 10, 20],
                     showInfo: true
@@ -106,6 +103,7 @@
                         readyCtr++;
                     }
                     if (readyCtr === widgetCount) {
+                        readyCtr++;
                         initScrollable();
                     }
                 }
