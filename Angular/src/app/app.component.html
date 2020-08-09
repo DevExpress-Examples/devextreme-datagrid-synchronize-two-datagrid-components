@@ -1,0 +1,45 @@
+<div class="tables">
+    <div class="column">
+        <dx-data-grid [dataSource]="customers" keyExpr="ID" [showBorders]="true" [height]="440"
+            (onContentReady)="onContentReady($event)" (onOptionChanged)="onOptionChanged($event)">
+            <dxo-paging [enabled]="true" [(pageSize)]="pageSize" [(pageIndex)]="pageIndex"></dxo-paging>
+            <dxo-pager [visible]="true" [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"
+                [showInfo]="true">
+            </dxo-pager>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-selection mode="single"></dxo-selection>
+            <dxi-column dataField="CompanyName" [(selectedFilterOperation)]="columnSelectedFilterOps.CompanyName"
+                [(filterValue)]="columnFilterValues.CompanyName"></dxi-column>
+            <dxi-column dataField="City" [(selectedFilterOperation)]="columnSelectedFilterOps.City"
+                [(filterValue)]="columnFilterValues.City"></dxi-column>
+            <dxi-column dataField="State" [(selectedFilterOperation)]="columnSelectedFilterOps.State"
+                [(filterValue)]="columnFilterValues.State"></dxi-column>
+            <dxi-column dataField="Phone" [(selectedFilterOperation)]="columnSelectedFilterOps.Phone"
+                [(filterValue)]="columnFilterValues.Phone"></dxi-column>
+            <dxi-column dataField="Fax" [(selectedFilterOperation)]="columnSelectedFilterOps.Fax"
+                [(filterValue)]="columnFilterValues.Fax"></dxi-column>
+        </dx-data-grid>
+    </div>
+    <div class="column">
+        <dx-data-grid [dataSource]="customers" keyExpr="ID" [showBorders]="true" [height]="440"
+            (onContentReady)="onContentReady($event)">
+            <dxo-paging [enabled]="true" [pageSize]="pageSize" [pageIndex]="pageIndex"></dxo-paging>
+            <dxo-pager [visible]="true" [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"
+                [showInfo]="true">
+            </dxo-pager>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-selection mode="single"></dxo-selection>
+            <dxi-column dataField="CompanyName" [selectedFilterOperation]="columnSelectedFilterOps.CompanyName"
+                [filterValue]="columnFilterValues.CompanyName" [sortOrder]="columnSortOpts.CompanyName"
+                [sortIndex]="columnSortOpts.CompanyName"></dxi-column>
+            <dxi-column dataField="City" [selectedFilterOperation]="columnSelectedFilterOps.City"
+                [filterValue]="columnFilterValues.City" [sortOrder]="columnSortOpts.City"></dxi-column>
+            <dxi-column dataField="State" [selectedFilterOperation]="columnSelectedFilterOps.State"
+                [filterValue]="columnFilterValues.State" [sortOrder]="columnSortOpts.State"></dxi-column>
+            <dxi-column dataField="Phone" [selectedFilterOperation]="columnSelectedFilterOps.Phone"
+                [filterValue]="columnFilterValues.Phone" [sortOrder]="columnSortOpts.Phone"></dxi-column>
+            <dxi-column dataField="Fax" [selectedFilterOperation]="columnSelectedFilterOps.Fax"
+                [filterValue]="columnFilterValues.Fax" [sortOrder]="columnSortOpts.Fax"></dxi-column>
+        </dx-data-grid>
+    </div>
+</div>
