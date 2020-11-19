@@ -1,7 +1,8 @@
 <div class="tables">
     <div class="column">
         <dx-data-grid [dataSource]="customers" keyExpr="ID" [showBorders]="true" [height]="440"
-            (onContentReady)="onContentReady($event)" (onOptionChanged)="onOptionChanged($event)">
+            [(selectedRowKeys)]="selectedRowKeys" (onContentReady)="onContentReady($event)" 
+            (onOptionChanged)="onOptionChanged($event)">
             <dxo-paging [enabled]="true" [(pageSize)]="pageSize" [(pageIndex)]="pageIndex"></dxo-paging>
             <dxo-pager [visible]="true" [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"
                 [showInfo]="true">
@@ -22,7 +23,7 @@
     </div>
     <div class="column">
         <dx-data-grid [dataSource]="customers" keyExpr="ID" [showBorders]="true" [height]="440"
-            (onContentReady)="onContentReady($event)">
+            [selectedRowKeys]="selectedRowKeys" (onContentReady)="onContentReady($event)">
             <dxo-paging [enabled]="true" [pageSize]="pageSize" [pageIndex]="pageIndex"></dxo-paging>
             <dxo-pager [visible]="true" [showPageSizeSelector]="true" [allowedPageSizes]="allowedPageSizes"
                 [showInfo]="true">

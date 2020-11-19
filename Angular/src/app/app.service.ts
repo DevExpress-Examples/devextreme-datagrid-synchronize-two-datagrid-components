@@ -12,14 +12,6 @@ export class Customer {
     Website: string;
 }
 
-// export class ColumnFilterValues {
-//     CompanyName: string;
-//     City: string;
-//     State: string;
-//     Phone: string;
-//     Fax: string;
-// }
-
 let customers: Customer[] = [{
     "ID": 1,
     "CompanyName": "Super Mart of the West",

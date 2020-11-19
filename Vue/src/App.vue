@@ -7,6 +7,7 @@
         key-expr="ID"
         :show-borders="true"
         :height="440"
+        :selected-row-keys.sync="selectedRowKeys"
         @content-ready="onContentReady($event)" 
         @option-changed="onOptionChanged($event)"
       >
@@ -39,6 +40,7 @@
         key-expr="ID"
         :show-borders="true"
         :height="440"
+        :selected-row-keys="selectedRowKeys"
         @content-ready="onContentReady($event)" 
       >
         <DxPaging :enabled="true" :page-size="pageSize" :page-index="pageIndex"/>
@@ -92,7 +94,8 @@ export default {
       pageIndex: 0,
       columnFilterValues: service.initColumnOptions(),
       columnSelectedFilterOps: service.initColumnOptions(),
-      columnSortOpts: service.initColumnOptions()
+      columnSortOpts: service.initColumnOptions(),
+      selectedRowKeys: []
       
     };
   },
