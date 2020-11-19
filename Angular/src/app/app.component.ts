@@ -21,6 +21,7 @@ export class AppComponent {
   pageSize: number;
   allowedPageSizes: Array<number>;
   pageIndex: number;
+  selectedRowKeys: Array<number>;
 
   columnFilterValues: any;
   columnSelectedFilterOps: any;
