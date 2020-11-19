@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FgZ3BCekInlw/6CXUWlFiGCvAyROD8T6uWCsWRIA9Md3tk9iL6TYzZPjDx0+YjeoOalu1zrOwEM0XluazAaTMA==",
+  "dgSpecHash": "dwk7simnLIvUWXhDVGO5zKqdebhBs6fizB0O7/zshWl15pCCMFzTewqui2pIbNjMvFIu97KVfebGI8O4R+MRmA==",
   "success": true,
-  "projectFilePath": "A:\\Programming\\GitHub\\DataGrid---How-to-synchronize-two-DataGrids-1\\ASP.NET\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
+  "projectFilePath": "A:\\Programming\\DevExtreme\\ASP.NET Testing\\SAMPLES\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\frost\\.nuget\\packages\\buildbundlerminifier\\2.9.406\\buildbundlerminifier.2.9.406.nupkg.sha512",
     "C:\\Users\\frost\\.nuget\\packages\\devextreme.aspnet.core\\20.1.6\\devextreme.aspnet.core.20.1.6.nupkg.sha512",
@@ -163,7 +163,8 @@
     "C:\\Users\\frost\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\frost\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\frost\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\frost\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\frost\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\frost\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

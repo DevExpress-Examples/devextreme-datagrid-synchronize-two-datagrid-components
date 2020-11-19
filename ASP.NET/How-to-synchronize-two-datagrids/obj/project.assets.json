@@ -7389,14 +7389,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\Programming\\GitHub\\DataGrid---How-to-synchronize-two-DataGrids-1\\ASP.NET\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
+      "projectUniqueName": "A:\\Programming\\DevExtreme\\ASP.NET Testing\\SAMPLES\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
       "projectName": "How-to-synchronize-two-datagrids",
-      "projectPath": "A:\\Programming\\GitHub\\DataGrid---How-to-synchronize-two-DataGrids-1\\ASP.NET\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
+      "projectPath": "A:\\Programming\\DevExtreme\\ASP.NET Testing\\SAMPLES\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids.csproj",
       "packagesPath": "C:\\Users\\frost\\.nuget\\packages\\",
-      "outputPath": "A:\\Programming\\GitHub\\DataGrid---How-to-synchronize-two-DataGrids-1\\ASP.NET\\How-to-synchronize-two-datagrids\\obj\\",
+      "outputPath": "A:\\Programming\\DevExtreme\\ASP.NET Testing\\SAMPLES\\How-to-synchronize-two-datagrids\\How-to-synchronize-two-datagrids\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "A:\\Programming\\GitHub\\DataGrid---How-to-synchronize-two-DataGrids-1\\ASP.NET\\NuGet.Config",
+        "A:\\Programming\\DevExtreme\\ASP.NET Testing\\SAMPLES\\How-to-synchronize-two-datagrids\\NuGet.Config",
         "C:\\Users\\frost\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
@@ -7410,8 +7410,7 @@
         "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\DevExpress 20.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.devexpress.com/XZk84gGxgdqWxq5YaLQwfWqRW2pATjewNLQ2Vo2yy1tVdPFEll/api": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -7450,6 +7449,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.2, 3.1.2]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7458,7 +7463,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

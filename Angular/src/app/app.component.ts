@@ -2,6 +2,9 @@ import { Component, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { Service, Customer } from './app.service'
 import { DxDataGridComponent } from 'devextreme-angular';
 
+//testing
+import { pairs, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
