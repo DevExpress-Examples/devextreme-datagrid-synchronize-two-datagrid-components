@@ -13,5 +13,4 @@ function handleDynamic(state, grid, prop, value) {
 }
 
 export default reducer;
-export {handleSelectedRowKeys};
 
