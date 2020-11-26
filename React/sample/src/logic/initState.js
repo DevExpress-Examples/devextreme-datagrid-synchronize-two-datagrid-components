@@ -1,16 +1,12 @@
-import grid from '../gridEnum'
-
 function initCommonOptions() {
     return {
-        selectedRowKeys: [],
-        pageSize: 20,
-        pageIndex: 0
+        selectedRowKeys: []
     }
 }
 
 const initState = {
-[grid.one]: initCommonOptions(), 
-[grid.two]: initCommonOptions()
-}
+    one: initCommonOptions(), 
+    two: initCommonOptions()
+  }
 
 export default initState;
