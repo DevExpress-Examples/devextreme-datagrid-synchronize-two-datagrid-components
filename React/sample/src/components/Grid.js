@@ -13,9 +13,11 @@ function Grid({dataSource, syncedOpts}) {
         selectedRowKeys={syncedOpts.selectedRowKeys}
         onSelectedRowKeysChange={syncedOpts.handleSelectedRowKeysChange}
     >
-        {/* <Paging enabled={true} pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 
-          onPageSizeChange={syncedOpts.handlePageSizeChange} onPageIndexChange={syncedOpts.handlePageIndexChange}/>
-        <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} /> */}
+        <Paging enabled={true} pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 
+          onPageSizeChange={syncedOpts.handlePageSizeChange} 
+          // onPageIndexChange={syncedOpts.handlePageIndexChange}
+          />
+        <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
         <Selection mode="single" />
     </DataGrid>
   );
