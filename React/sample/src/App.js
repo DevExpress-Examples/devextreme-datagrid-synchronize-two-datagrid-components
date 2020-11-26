@@ -7,7 +7,6 @@ import { customers } from "./data"
 import reducer from './logic/reducer'
 import initState from './logic/initState'
 import gridEnum from './gridEnum'
-import { GroupOperationDescriptions } from 'devextreme-react/data-grid';
 
 
 function App() {
@@ -38,7 +37,9 @@ function App() {
       selectedRowKeys: state[grid].selectedRowKeys,
       pageSize: state[grid].pageSize,
       pageIndex: state[grid].pageIndex,
-      handleSelectedRowKeysChange: (keys) => dispatch({type: "selectedRowKeys", value: keys, grid})
+      handleSelectedRowKeysChange: (keys) => dispatch({type: "selectedRowKeys", value: keys, grid}),
+      handlePageIndexChange: (pageIndex) => dispatch({type: "pageIndex", value: pageIndex, grid}),
+      handlePageSizeChange: (pageSize) => dispatch({type: "pageSize", value: pageSize, grid})
     }
   }, [state])
 
@@ -48,8 +49,9 @@ function App() {
         <div className="column">
           <Grid dataSource={customers} 
             syncedOpts={getSyncedGridOptions(gridEnum.one)}
-            // selectedRowKeys={one.selectedRowKeys}
-            // pageSize={one.pageSize}
+            // selectedRowKeys={state.one.selectedRowKeys}
+            // pageSize={state.one.pageSize}
+            // pageIndex={state.one.pageIndex}
             // handleSelectedRowKeysChange={keys => dispatch({type: "selectedRowKeys", value: keys, grid: gridEnum.one})}
             // handlePageSizeChange={pageSize => dispatch({type: "pageSize", value: pageSize, grid: gridEnum.one})}
             // handlePageIndexChange={pageIndex => dispatch({type: "pageSize", value: pageIndex, grid: gridEnum.one})}
@@ -58,8 +60,9 @@ function App() {
         <div className="column">
           <Grid dataSource={customers} 
             syncedOpts={getSyncedGridOptions(gridEnum.two)}
-            // selectedRowKeys={two.selectedRowKeys}
-            // pageSize={two.pageSize}
+            // selectedRowKeys={state.two.selectedRowKeys}
+            // pageSize={state.two.pageSize}
+            // pageIndex={state.two.pageIndex}
             // handleSelectedRowKeysChange={(keys) => dispatch({type: "selectedRowKeys", value: keys, grid: gridEnum.two})}
             // handlePageSizeChange={pageSize => dispatch({type: "pageSize", value: pageSize, grid: gridEnum.two})}
             // handlePageIndexChange={pageIndex => dispatch({type: "pageSize", value: pageIndex, grid: gridEnum.two})}
