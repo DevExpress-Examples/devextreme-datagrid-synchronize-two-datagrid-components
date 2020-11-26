@@ -3,10 +3,10 @@ import 'devextreme/dist/css/dx.light.css';
 import React, { useCallback, useState, useReducer, useMemo, useEffect } from 'react';
 import './App.css';
 import Grid from "./components/Grid"
-import { customers } from "./data"
+import { customers } from "./data/customers"
 import reducer from './logic/reducer'
 import initState from './logic/initState'
-import gridEnum from './gridEnum'
+import gridEnum from './data/gridEnum'
 
 
 function App() {

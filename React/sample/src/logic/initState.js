@@ -1,4 +1,4 @@
-import grid from '../gridEnum'
+import grid from '../data/gridEnum'
 
 function initCommonOptions() {
     return {

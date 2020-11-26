@@ -1,4 +1,4 @@
-import gridEnum from '../gridEnum'
+import gridEnum from '../data/gridEnum'
 
 function reducer(state, action) {
   return handleDynamic(state, action.grid, action.type, action.value)
@@ -6,7 +6,9 @@ function reducer(state, action) {
 
 function handleDynamic(state, grid, prop, value) {
   if(grid === gridEnum.one) {
-    let test = {...state, one: {...state.one, [prop]: value}, two: {...state.two, [prop]: value}}
+    console.log('prop')
+  
+    let test = {one: {...state.one, [prop]: value}, two: {...state.two, [prop]: value}}
     debugger;
     return test
   } else if(grid === gridEnum.two) {
