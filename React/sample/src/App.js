@@ -10,20 +10,6 @@ import gridEnum from './gridEnum'
 
 function App() {
   const [{one, two}, dispatch] = useReducer(reducer, initState)
-  // const [selectedRowKeys, setSelectedRowKeys] = useState({
-  //   first: [],
-  //   second: []
-  // });
-  
-  // const handleSelectionFirst = useCallback(selectedKeys => {
-  //   setSelectedRowKeys({first: selectedKeys, second: selectedKeys});
-  // }, [])
-
-  // const handleSelectionSecond = useCallback(selectedKeys => {
-  //   setSelectedRowKeys({...selectedRowKeys, second: selectedKeys});
-  // }, [])
-
-
 
   return (
     <div className="App">
@@ -34,8 +20,7 @@ function App() {
             pageSize={one.pageSize}
             handleSelectedRowKeysChange={keys => dispatch({type: "selectedRowKeys", value: keys, grid: gridEnum.one})}
             handlePageSizeChange={pageSize => dispatch({type: "pageSize", value: pageSize, grid: gridEnum.one})}
-            // selectedRowKeys={selectedRowKeys.first} 
-            // handleSelectedRowKeysChange={handleSelectionFirst} 
+            handlePageIndexChange={pageIndex => dispatch({type: "pageSize", value: pageIndex, grid: gridEnum.one})}
           />
         </div>
         <div className="column">
@@ -44,8 +29,7 @@ function App() {
             pageSize={two.pageSize}
             handleSelectedRowKeysChange={(keys) => dispatch({type: "selectedRowKeys", value: keys, grid: gridEnum.two})}
             handlePageSizeChange={pageSize => dispatch({type: "pageSize", value: pageSize, grid: gridEnum.two})}
-            // selectedRowKeys={selectedRowKeys.second} 
-            // handleSelectedRowKeysChange={handleSelectionSecond} 
+            handlePageIndexChange={pageIndex => dispatch({type: "pageSize", value: pageIndex, grid: gridEnum.two})}
           />
         </div>
       </div>

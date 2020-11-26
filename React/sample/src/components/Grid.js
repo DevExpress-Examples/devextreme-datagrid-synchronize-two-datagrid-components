@@ -13,7 +13,8 @@ function Grid(props) {
         selectedRowKeys={props.selectedRowKeys}
         onSelectedRowKeysChange={props.handleSelectedRowKeysChange}
     >
-        <Paging enabled={true} pageSize={props.pageSize} onPageSizeChange={props.handlePageSizeChange}/>
+        <Paging enabled={true} pageSize={props.pageSize} pageIndex={props.pageIndex} 
+          onPageSizeChange={props.handlePageSizeChange} onPageIndexChange={props.handlePageIndexChange}/>
         <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
         <Selection mode="single" />
     </DataGrid>
