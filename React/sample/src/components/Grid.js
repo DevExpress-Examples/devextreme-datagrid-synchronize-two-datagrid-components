@@ -3,18 +3,18 @@ import DataGrid, { Selection, Pager, Paging } from 'devextreme-react/data-grid';
 
 const allowedPageSizes = [5, 10, 20]
 
-function Grid(props) {
+function Grid({dataSource, syncedOpts}) {
   return (
     <DataGrid
-        dataSource={props.dataSource}
+        dataSource={dataSource}
         keyExpr="ID"
         showBorders={true}
         height={440}
-        selectedRowKeys={props.selectedRowKeys}
-        onSelectedRowKeysChange={props.handleSelectedRowKeysChange}
+        selectedRowKeys={syncedOpts.selectedRowKeys}
+        onSelectedRowKeysChange={syncedOpts.handleSelectedRowKeysChange}
     >
-        <Paging enabled={true} pageSize={props.pageSize} pageIndex={props.pageIndex} 
-          onPageSizeChange={props.handlePageSizeChange} onPageIndexChange={props.handlePageIndexChange}/>
+        <Paging enabled={true} pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 
+          onPageSizeChange={syncedOpts.handlePageSizeChange} onPageIndexChange={syncedOpts.handlePageIndexChange}/>
         <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
         <Selection mode="single" />
     </DataGrid>
