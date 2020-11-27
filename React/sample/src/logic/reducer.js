@@ -6,11 +6,7 @@ function reducer(state, action) {
 
 function handleDynamic(state, grid, prop, value) {
   if(grid === gridEnum.one) {
-    console.log('prop')
-  
-    let test = {one: {...state.one, [prop]: value}, two: {...state.two, [prop]: value}}
-    debugger;
-    return test
+    return {one: {...state.one, [prop]: value}, two: {...state.two, [prop]: value}} 
   } else if(grid === gridEnum.two) {
     return {...state, two: {...state.two, [prop]: value}}
   }
