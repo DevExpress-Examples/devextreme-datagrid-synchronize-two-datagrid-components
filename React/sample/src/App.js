@@ -10,30 +10,23 @@ import gridEnum from './data/gridEnum'
 
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initState)
+  const [{[gridEnum.one]: grid1State, [gridEnum.two]: grid2State}, dispatch] = useReducer(reducer, initState)
   
-  const getSyncedGridOptions = useCallback((grid) => {
-    return {
-      selectedRowKeys: state[grid].selectedRowKeys,
-      pageSize: state[grid].pageSize,
-      pageIndex: state[grid].pageIndex,
-      handleSelectedRowKeysChange: (keys) => dispatch({type: "selectedRowKeys", value: keys, grid}),
-      handlePageIndexChange: (pageIndex) => dispatch({type: "pageIndex", value: pageIndex, grid}),
-      handlePageSizeChange: (pageSize) => dispatch({type: "pageSize", value: pageSize, grid})
-    }
-  }, [state])
-
   return (
     <div className="App">
       <div className="tables">
         <div className="column">
           <Grid dataSource={customers} 
-            syncedOpts={getSyncedGridOptions(gridEnum.one)}
+            syncedOpts={grid1State}
+            gridName={gridEnum.one}
+            dispatch={dispatch}
           />
         </div>
         <div className="column">
           <Grid dataSource={customers} 
-            syncedOpts={getSyncedGridOptions(gridEnum.two)}
+            syncedOpts={grid2State}
+            gridName={gridEnum.two}
+            dispatch={dispatch}
           />
         </div>
       </div>

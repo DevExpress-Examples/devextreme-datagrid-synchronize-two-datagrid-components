@@ -1,16 +1,21 @@
 import gridEnum from '../data/gridEnum'
 
-function reducer(state, action) {
-  return handleDynamic(state, action.grid, action.type, action.value)
-}
-
-function handleDynamic(state, grid, prop, value) {
-  if(grid === gridEnum.one) {
-    return {one: {...state.one, [prop]: value}, two: {...state.two, [prop]: value}} 
-  } else if(grid === gridEnum.two) {
-    return {...state, two: {...state.two, [prop]: value}}
+function reducer(state, action){
+  switch(action.type){
+    case 'UPDATE':         
+      const {grid, prop, value} = action
+      if(grid === gridEnum.one) {
+        return {[gridEnum.one]: {...state[gridEnum.one], [prop]: value}, [gridEnum.two]: {...state[gridEnum.two], [prop]: value}} 
+      } else if(grid === gridEnum.two) {
+        return {...state, [gridEnum.two]: {...state[gridEnum.two], [prop]: value}}
+      }
   }
 }
 
+function updateOptions(prop, value, grid) {
+  return {type: 'UPDATE', prop, value, grid}
+}
+
 export default reducer;
+export { updateOptions}
 
