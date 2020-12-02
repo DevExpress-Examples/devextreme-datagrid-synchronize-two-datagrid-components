@@ -1,15 +1,15 @@
 /**
- * CLDR JavaScript Library v0.5.1
+ * CLDR JavaScript Library v0.5.3
  * http://jquery.com/
  *
  * Copyright 2013 Rafael Xavier de Souza
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2019-01-21T13:43Z
+ * Date: 2020-08-05T21:43Z
  */
 /*!
- * CLDR JavaScript Library v0.5.1 2019-01-21T13:43Z MIT license © Rafael Xavier
+ * CLDR JavaScript Library v0.5.3 2020-08-05T21:43Z MIT license © Rafael Xavier
  * http://git.io/h4lmVg
  */
 (function( root, factory ) {
@@ -297,6 +297,10 @@
 				var existing, maxBundle, minBundle, subtags;
 				subtags = coreSubtags( bundle );
 				maxBundle = coreLikelySubtags( Cldr, cldr, subtags );
+				if ( maxBundle === undefined ) {
+					availableBundleMapQueue.splice( i, 1 );
+					throw new Error( "Could not find likelySubtags for " + bundle );
+				}
 				minBundle = coreRemoveLikelySubtags( Cldr, cldr, maxBundle );
 				minBundle = minBundle.join( Cldr.localeSep );
 				existing = availableBundleMap[ minBundle ];

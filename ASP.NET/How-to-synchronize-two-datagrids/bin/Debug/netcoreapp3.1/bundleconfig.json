@@ -12,8 +12,7 @@
 
             // Custom theme with a color swatch
             // Docs: https://js.devexpress.com/DevExtreme/Guide/Themes_and_Styles/Predefined_Themes/#Color_Swatches
-            "wwwroot/css/devextreme/theme.base.css",
-            "wwwroot/css/devextreme/theme.additional.css"
+            "wwwroot/css/devextreme/theme.base.css"
         ],
         "minify": {
             "enabled": false

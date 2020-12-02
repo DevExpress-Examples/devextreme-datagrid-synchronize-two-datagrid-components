@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.de.js)
-* Version: 20.1.6
-* Build date: Fri Jul 17 2020
+* Version: 20.2.3
+* Build date: Tue Oct 20 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -80,6 +80,7 @@
             "dxFileUploader-upload": "Hochladen",
             "dxFileUploader-uploaded": "Hochgeladen",
             "dxFileUploader-readyToUpload": "Bereit zum hochladen",
+            "dxFileUploader-uploadAbortedMessage": "Upload abgebrochen",
             "dxFileUploader-uploadFailedMessage": "Fehler beim hochladen",
             "dxFileUploader-invalidFileExtension": "Unzul\xe4ssiger Dateityp",
             "dxFileUploader-invalidMaxFileSize": "Datei ist zu gro\xdf",
@@ -173,6 +174,7 @@
             "dxTreeList-editingAddRowToNode": "Hinzuf\xfcgen",
             "dxPager-infoText": "Seite {0} von {1} ({2} Elemente)",
             "dxPager-pagesCountText": "von",
+            "dxPager-pageSizesAllText": "Alle",
             "dxPivotGrid-grandTotal": "Gesamt",
             "dxPivotGrid-total": "{0} Gesamt",
             "dxPivotGrid-fieldChooserTitle": "Feldauswahl",
@@ -282,6 +284,9 @@
             "dxHtmlEditor-dialogImageAltField": "Alternativer Text",
             "dxHtmlEditor-dialogImageWidthField": "Breite (px)",
             "dxHtmlEditor-dialogImageHeightField": "Bildh\xf6he (px)",
+            "dxHtmlEditor-dialogInsertTableRowsField": "Zeilen",
+            "dxHtmlEditor-dialogInsertTableColumnsField": "Spalten",
+            "dxHtmlEditor-dialogInsertTableCaption": "Tabelle einf\xfcgen",
             "dxHtmlEditor-heading": "\xdcberschrift",
             "dxHtmlEditor-normalText": "Normaler Text",
             "dxFileManager-newDirectoryName": "Ohne Titel",
@@ -307,7 +312,7 @@
             "dxFileManager-commandThumbnails": "Miniaturansicht",
             "dxFileManager-commandDetails": "Detailansicht",
             "dxFileManager-commandClearSelection": "Auswahl aufheben",
-            "dxFileManager-commandShowNavPane": "TODO",
+            "dxFileManager-commandShowNavPane": "Navigationsbereich ein-/ausschalten",
             "dxFileManager-dialogDirectoryChooserMoveTitle": "Verschieben nach",
             "dxFileManager-dialogDirectoryChooserMoveButtonText": "Verschieben",
             "dxFileManager-dialogDirectoryChooserCopyTitle": "Kopieren nach",

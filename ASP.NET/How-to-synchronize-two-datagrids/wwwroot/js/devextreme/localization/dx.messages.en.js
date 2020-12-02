@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.en.js)
-* Version: 20.1.6
-* Build date: Fri Jul 17 2020
+* Version: 20.2.3
+* Build date: Tue Oct 20 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -80,6 +80,7 @@
             "dxFileUploader-upload": "Upload",
             "dxFileUploader-uploaded": "Uploaded",
             "dxFileUploader-readyToUpload": "Ready to upload",
+            "dxFileUploader-uploadAbortedMessage": "Upload cancelled",
             "dxFileUploader-uploadFailedMessage": "Upload failed",
             "dxFileUploader-invalidFileExtension": "File type is not allowed",
             "dxFileUploader-invalidMaxFileSize": "File is too large",
@@ -173,6 +174,7 @@
             "dxTreeList-editingAddRowToNode": "Add",
             "dxPager-infoText": "Page {0} of {1} ({2} items)",
             "dxPager-pagesCountText": "of",
+            "dxPager-pageSizesAllText": "All",
             "dxPivotGrid-grandTotal": "Grand Total",
             "dxPivotGrid-total": "{0} Total",
             "dxPivotGrid-fieldChooserTitle": "Field Chooser",
@@ -282,6 +284,9 @@
             "dxHtmlEditor-dialogImageAltField": "Alternate text",
             "dxHtmlEditor-dialogImageWidthField": "Width (px)",
             "dxHtmlEditor-dialogImageHeightField": "Height (px)",
+            "dxHtmlEditor-dialogInsertTableRowsField": "Rows",
+            "dxHtmlEditor-dialogInsertTableColumnsField": "Columns",
+            "dxHtmlEditor-dialogInsertTableCaption": "Insert Table",
             "dxHtmlEditor-heading": "Heading",
             "dxHtmlEditor-normalText": "Normal text",
             "dxFileManager-newDirectoryName": "Untitled directory",

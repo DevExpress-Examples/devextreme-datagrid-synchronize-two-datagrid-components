@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.sl.js)
-* Version: 20.1.6
-* Build date: Fri Jul 17 2020
+* Version: 20.2.3
+* Build date: Tue Oct 20 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -78,6 +78,7 @@
             "dxFileUploader-upload": "Nalo\u017ei",
             "dxFileUploader-uploaded": "Nalo\u017eeno",
             "dxFileUploader-readyToUpload": "Pripravljeno za nalaganje",
+            "dxFileUploader-uploadAbortedMessage": "TODO",
             "dxFileUploader-uploadFailedMessage": "Nalaganje je spodletelo",
             "dxFileUploader-invalidFileExtension": "Tip datoteke ni dovoljen",
             "dxFileUploader-invalidMaxFileSize": "Datoteka je prevelika",
@@ -171,6 +172,7 @@
             "dxTreeList-editingAddRowToNode": "Dodaj",
             "dxPager-infoText": "Stran {0} od {1} ({2} zapisov)",
             "dxPager-pagesCountText": "od",
+            "dxPager-pageSizesAllText": "Vse",
             "dxPivotGrid-grandTotal": "Skupna vsota",
             "dxPivotGrid-total": "{0} skupaj",
             "dxPivotGrid-fieldChooserTitle": "Izbirnik polj",
@@ -280,6 +282,9 @@
             "dxHtmlEditor-dialogImageAltField": "Dodatno besedilo",
             "dxHtmlEditor-dialogImageWidthField": "\u0160irina (px)",
             "dxHtmlEditor-dialogImageHeightField": "Vi\u0161ina (px)",
+            "dxHtmlEditor-dialogInsertTableRowsField": "!TODO",
+            "dxHtmlEditor-dialogInsertTableColumnsField": "!TODO",
+            "dxHtmlEditor-dialogInsertTableCaption": "!TODO",
             "dxHtmlEditor-heading": "Naslov",
             "dxHtmlEditor-normalText": "Obi\u010dajno besedilo",
             "dxFileManager-newDirectoryName": "Neimenovana mapa",

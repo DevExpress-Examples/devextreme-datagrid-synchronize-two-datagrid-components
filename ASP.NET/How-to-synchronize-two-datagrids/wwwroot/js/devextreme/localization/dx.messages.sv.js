@@ -1,7 +1,7 @@
 /*!
 * DevExtreme (dx.messages.sv.js)
-* Version: 20.1.6
-* Build date: Fri Jul 17 2020
+* Version: 20.2.3
+* Build date: Tue Oct 20 2020
 *
 * Copyright (c) 2012 - 2020 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -80,6 +80,7 @@
             "dxFileUploader-upload": "Ladda upp",
             "dxFileUploader-uploaded": "Uppladdad",
             "dxFileUploader-readyToUpload": "Klar att ladda upp",
+            "dxFileUploader-uploadAbortedMessage": "TODO",
             "dxFileUploader-uploadFailedMessage": "Uppladdning misslyckades",
             "dxFileUploader-invalidFileExtension": "",
             "dxFileUploader-invalidMaxFileSize": "",
@@ -173,6 +174,7 @@
             "dxTreeList-editingAddRowToNode": "L\xe4gg till",
             "dxPager-infoText": "Sida {0} av {1} ({2} uppgifter)",
             "dxPager-pagesCountText": "av",
+            "dxPager-pageSizesAllText": "Allt",
             "dxPivotGrid-grandTotal": "Totalsumma",
             "dxPivotGrid-total": "{0} Summa",
             "dxPivotGrid-fieldChooserTitle": "F\xe4ltv\xe4ljare",
@@ -282,6 +284,9 @@
             "dxHtmlEditor-dialogImageAltField": "!TODO!",
             "dxHtmlEditor-dialogImageWidthField": "!TODO!",
             "dxHtmlEditor-dialogImageHeightField": "!TODO!",
+            "dxHtmlEditor-dialogInsertTableRowsField": "!TODO",
+            "dxHtmlEditor-dialogInsertTableColumnsField": "!TODO",
+            "dxHtmlEditor-dialogInsertTableCaption": "!TODO",
             "dxHtmlEditor-heading": "!TODO!",
             "dxHtmlEditor-normalText": "!TODO!",
             "dxFileManager-newDirectoryName": "TODO",
