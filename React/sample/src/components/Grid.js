@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import DataGrid, { Selection, Pager, Paging } from 'devextreme-react/data-grid';
-import { updateOptions } from '../logic/reducer';
+import DataGrid, { Selection, Pager, Paging, Column, FilterRow } from 'devextreme-react/data-grid';
+import { updateOptions, updateColumnOptions } from '../logic/reducer';
 const allowedPageSizes = [5, 10, 20]
 
 function Grid({dataSource, syncedOpts, dispatch, gridName}) {  
@@ -13,12 +13,25 @@ function Grid({dataSource, syncedOpts, dispatch, gridName}) {
         selectedRowKeys={syncedOpts.selectedRowKeys}
         onSelectedRowKeysChange={(keys) => dispatch(updateOptions('selectedRowKeys', keys, gridName))}
     >
+        <Column dataField="CompanyName" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.CompanyName}
+            filterValue={syncedOpts.column.filterValue.CompanyName} sortOrder={syncedOpts.column.sortOrder.CompanyName}
+            onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "CompanyName", filterValue, gridName))}
+            onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "CompanyName", selectedFilterOperation, gridName))}
+            onSortOrderChange={(sortOrder) => dispatch(updateColumnOptions("sortOrder", "CompanyName", sortOrder, gridName))}
+          />
+        <Column dataField="Address" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.Address}
+            filterValue={syncedOpts.column.filterValue.Address} sortOrder={syncedOpts.column.sortOrder.Address}
+            onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "Address", filterValue, gridName))}
+            onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "Address", selectedFilterOperation, gridName))}
+            onSortOrderChange={(sortOrder) => dispatch(updateColumnOptions("sortOrder", "Address", sortOrder, gridName))}
+          />
         <Paging enabled={true} 
           pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 
           onPageSizeChange={(pageSize) => dispatch(updateOptions('pageSize', pageSize, gridName))}
           onPageIndexChange={(pageIndex) => dispatch(updateOptions('pageIndex', pageIndex, gridName))}
           />
         <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
+        <FilterRow visible={true} />
         <Selection mode="single" />
     </DataGrid>
   );
