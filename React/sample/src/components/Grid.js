@@ -3,15 +3,18 @@ import DataGrid, { Selection, Pager, Paging, Column, FilterRow } from 'devextrem
 import { updateOptions, updateColumnOptions } from '../logic/reducer';
 const allowedPageSizes = [5, 10, 20]
 
-function Grid({dataSource, syncedOpts, dispatch, gridName}) {  
+function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, onContentReady}) {  
+
   return (
     <DataGrid
+        ref={gridRef}
         dataSource={dataSource}
         keyExpr="ID"
         showBorders={true}
         height={440}
         selectedRowKeys={syncedOpts.selectedRowKeys}
         onSelectedRowKeysChange={(keys) => dispatch(updateOptions('selectedRowKeys', keys, gridName))}
+        onContentReady={onContentReady}
     >
         <Column dataField="CompanyName" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.CompanyName}
             filterValue={syncedOpts.column.filterValue.CompanyName} sortOrder={syncedOpts.column.sortOrder.CompanyName}
