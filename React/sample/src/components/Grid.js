@@ -1,9 +1,22 @@
 import React, { useCallback } from 'react';
 import DataGrid, { Selection, Pager, Paging, Column, FilterRow } from 'devextreme-react/data-grid';
-import { updateOptions, updateColumnOptions } from '../logic/reducer';
+import { updateOptions, updateColumnOptions, incrementReadyCtr } from '../logic/reducer';
 const allowedPageSizes = [5, 10, 20]
 
-function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, onContentReady}) {  
+function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOpts}) {  
+
+  const onContentReady = useCallback((e) => {
+    if(initScrollOpts.readyCtr <= initScrollOpts.widgetCount) {
+      console.log(1)
+      dispatch(incrementReadyCtr());
+
+      if (initScrollOpts.readyCtr === initScrollOpts.widgetCount) {
+        setTimeout(() => {
+          initScrollOpts.start();
+        })
+      }
+    }
+  },[initScrollOpts.readyCtr]); 
 
   return (
     <DataGrid

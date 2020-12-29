@@ -26,8 +26,7 @@ function initCommonOptions() {
 const initState = {
     [grid.one]: initCommonOptions(), 
     [grid.two]: initCommonOptions(),
-    readyCtr: 0,
-    scrollables: []
+    readyCtr: 0
 }
 
 export default initState;

@@ -1,12 +1,13 @@
 import gridEnum from '../data/gridEnum'
 
 function reducer(state, action){
-  const {grid, prop, value, column, scrollable} = action,
-    gridsArr = [gridEnum.two],
-    newState = {...state};
+  const {grid, prop, value, column} = action,
+    gridsArr = [gridEnum.two]
+  let newState;
 
   switch(action.type){
     case 'UPDATE_OPTION':
+      newState = {...state}
       if(grid === gridEnum.one) 
         gridsArr.push(gridEnum.one);
 
@@ -15,17 +16,15 @@ function reducer(state, action){
       })
 
       return newState
-    case 'SAVE_SCROLLABLE':
-      newState.readyCtr = state.readyCtr + 1;
-      newState.scrollables.push(scrollable)
-      return newState
+    case 'INCREMENT_READY_CTR':
+      return {...state, readyCtr: state.readyCtr + 1}
     default:
       break;
   }
 }
 
-function saveScrollable(scrollable, grid){
-  return {type: "SAVE_SCROLLABLE", scrollable, grid }
+function incrementReadyCtr() {
+  return {type: "INCREMENT_READY_CTR"}
 }
 
 
@@ -55,5 +54,5 @@ function updateColumnOptions(prop, column, value, grid) {
 }
 
 export default reducer;
-export { updateOptions, updateColumnOptions, saveScrollable }
+export { updateOptions, updateColumnOptions, incrementReadyCtr }
 
