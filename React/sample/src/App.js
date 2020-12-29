@@ -8,7 +8,6 @@ import reducer from './logic/reducer'
 import initState from './logic/initState'
 import gridEnum from './data/gridEnum'
 
-//TODO: use useContext for readyCtr, initScrollable and widgetCount
 const widgetCount = 2;
 
 function App() {
