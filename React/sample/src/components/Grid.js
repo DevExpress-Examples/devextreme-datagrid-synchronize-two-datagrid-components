@@ -7,7 +7,6 @@ function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOp
 
   const onContentReady = useCallback((e) => {
     if(initScrollOpts.readyCtr <= initScrollOpts.widgetCount) {
-      console.log(1)
       dispatch(incrementReadyCtr());
 
       if (initScrollOpts.readyCtr === initScrollOpts.widgetCount) {
@@ -33,13 +32,15 @@ function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOp
             filterValue={syncedOpts.column.filterValue.CompanyName} sortOrder={syncedOpts.column.sortOrder.CompanyName}
             onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "CompanyName", filterValue, gridName))}
             onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "CompanyName", selectedFilterOperation, gridName))}
-            onSortOrderChange={(sortOrder) => dispatch(updateColumnOptions("sortOrder", "CompanyName", sortOrder, gridName))}
+            onSortOrderChange={(sortOrder) => {debugger;dispatch(updateColumnOptions("sortOrder", "CompanyName", sortOrder, gridName))}}
+            onSortIndexChange={(sortIndex) => {debugger;dispatch(updateColumnOptions("sortIndex", "CompanyName", sortIndex, gridName))}}
           />
         <Column dataField="Address" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.Address}
             filterValue={syncedOpts.column.filterValue.Address} sortOrder={syncedOpts.column.sortOrder.Address}
             onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "Address", filterValue, gridName))}
             onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "Address", selectedFilterOperation, gridName))}
-            onSortOrderChange={(sortOrder) => dispatch(updateColumnOptions("sortOrder", "Address", sortOrder, gridName))}
+            onSortOrderChange={(sortOrder) => {debugger;dispatch(updateColumnOptions("sortOrder", "Address", sortOrder, gridName))}}
+            onSortIndexChange={(sortIndex) => {debugger;dispatch(updateColumnOptions("sortIndex", "Address", sortIndex, gridName))}}
           />
         <Paging enabled={true} 
           pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 

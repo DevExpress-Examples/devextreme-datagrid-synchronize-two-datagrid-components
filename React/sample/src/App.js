@@ -22,10 +22,6 @@ function App() {
     scrollableDg1.on("scroll", function (e) {
       scrollableDg2.scrollTo(e.scrollOffset);
     }.bind(this));
-
-    scrollableDg2.on("scroll", function (e) {
-      console.log('dg2 scrolled')
-    }.bind(this));
   }
 
   const initScrollOpts = useMemo(() => {
