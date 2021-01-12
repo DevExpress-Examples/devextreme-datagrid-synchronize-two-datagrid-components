@@ -18,7 +18,8 @@ function initCommonOptions() {
         column: {
             filterValue: initColumnOptions(),
             selectedFilterOperation: initColumnOptions(),
-            sortOrder: initColumnOptions()
+            sortOrder: initColumnOptions(),
+            sortIndex: initColumnOptions()
         }
     }
 }
@@ -26,7 +27,8 @@ function initCommonOptions() {
 const initState = {
     [grid.one]: initCommonOptions(), 
     [grid.two]: initCommonOptions(),
-    readyCtr: 0
+    readyCtr: 0,
+    prevColumnSorted: undefined
 }
 
 export default initState;

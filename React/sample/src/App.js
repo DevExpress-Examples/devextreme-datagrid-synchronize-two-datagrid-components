@@ -1,6 +1,6 @@
 import 'devextreme/dist/css/dx.common.css';
 import 'devextreme/dist/css/dx.light.css';
-import React, { useReducer, useMemo, useRef } from 'react';
+import React, { useReducer, useMemo, useRef, useCallback } from 'react';
 import './App.css';
 import Grid from "./components/Grid"
 import { customers } from "./data/customers"
@@ -8,6 +8,7 @@ import reducer from './logic/reducer'
 import initState from './logic/initState'
 import gridEnum from './data/gridEnum'
 
+let prevColSorted
 const widgetCount = 2;
 
 function App() {
@@ -15,21 +16,33 @@ function App() {
   const grid1Ref = useRef();
   const grid2Ref = useRef();
   
-  const initScrollable = () => {
+  const initScrollable = useCallback(() => {
     const scrollableDg1 = grid1Ref.current.instance.getScrollable(),
       scrollableDg2 = grid2Ref.current.instance.getScrollable();
     
     scrollableDg1.on("scroll", function (e) {
       scrollableDg2.scrollTo(e.scrollOffset);
-    }.bind(this));
-  }
+    });
+  }, [])
 
   const initScrollOpts = useMemo(() => {
     return {
       start: initScrollable, 
       readyCtr, 
-      widgetCount}
+      widgetCount
+    }
   }, [readyCtr])
+
+  // TODO: check if there's a react way to do this
+  const resetPrevSort = useCallback((dataField, gridName) => {
+    if(gridName === gridEnum.one) {
+      if (prevColSorted && prevColSorted !== dataField) {
+        const gridTwo = grid2Ref.current.instance;
+        gridTwo.columnOption(prevColSorted, "sortOrder", null);
+      }
+    }
+    prevColSorted = dataField;
+  }, [])
 
   return (
     <div className="App">
@@ -41,6 +54,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid1Ref}
             initScrollOpts={initScrollOpts}
+            resetPrevSort={resetPrevSort}
           />
         </div>
         <div className="column">
@@ -50,6 +64,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid2Ref}
             initScrollOpts={initScrollOpts}
+            resetPrevSort={resetPrevSort}
           />
         </div>
       </div>
