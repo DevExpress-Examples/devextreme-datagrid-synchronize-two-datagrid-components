@@ -8,7 +8,7 @@ import reducer from './logic/reducer'
 import initState from './logic/initState'
 import gridEnum from './data/gridEnum'
 
-let prevColSorted
+// let prevColSorted
 const widgetCount = 2;
 
 function App() {
@@ -33,17 +33,6 @@ function App() {
     }
   }, [readyCtr])
 
-  // TODO: check if there's a react way to do this
-  const resetPrevSort = useCallback((dataField, gridName) => {
-    if(gridName === gridEnum.one) {
-      if (prevColSorted && prevColSorted !== dataField) {
-        const gridTwo = grid2Ref.current.instance;
-        gridTwo.columnOption(prevColSorted, "sortOrder", null);
-      }
-    }
-    prevColSorted = dataField;
-  }, [])
-
   return (
     <div className="App">
       <div className="tables">
@@ -54,7 +43,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid1Ref}
             initScrollOpts={initScrollOpts}
-            resetPrevSort={resetPrevSort}
+            // resetPrevSort={resetPrevSort}
           />
         </div>
         <div className="column">
@@ -64,7 +53,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid2Ref}
             initScrollOpts={initScrollOpts}
-            resetPrevSort={resetPrevSort}
+            // resetPrevSort={resetPrevSort}
           />
         </div>
       </div>
