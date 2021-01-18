@@ -8,7 +8,6 @@ import reducer from './logic/reducer'
 import initState from './logic/initState'
 import gridEnum from './data/gridEnum'
 
-// let prevColSorted
 const widgetCount = 2;
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
             dispatch={dispatch}
             gridRef={grid1Ref}
             initScrollOpts={initScrollOpts}
-            // resetPrevSort={resetPrevSort}
           />
         </div>
         <div className="column">
@@ -53,7 +51,6 @@ function App() {
             dispatch={dispatch}
             gridRef={grid2Ref}
             initScrollOpts={initScrollOpts}
-            // resetPrevSort={resetPrevSort}
           />
         </div>
       </div>
