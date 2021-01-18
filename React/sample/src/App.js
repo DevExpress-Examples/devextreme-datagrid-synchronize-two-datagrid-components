@@ -9,6 +9,7 @@ import initState from './logic/initState'
 import gridEnum from './data/gridEnum'
 
 const widgetCount = 2;
+const columns = ["CompanyName", "City", "State", "Phone", "Fax"]
 
 function App() {
   const [{[gridEnum.one]: grid1State, [gridEnum.two]: grid2State, readyCtr}, dispatch] = useReducer(reducer, initState)
@@ -42,6 +43,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid1Ref}
             initScrollOpts={initScrollOpts}
+            columns={columns}
           />
         </div>
         <div className="column">
@@ -51,6 +53,7 @@ function App() {
             dispatch={dispatch}
             gridRef={grid2Ref}
             initScrollOpts={initScrollOpts}
+            columns={columns}
           />
         </div>
       </div>
