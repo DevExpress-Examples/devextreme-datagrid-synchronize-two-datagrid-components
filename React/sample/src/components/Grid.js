@@ -3,10 +3,10 @@ import DataGrid, { Selection, Pager, Paging, Column, FilterRow } from 'devextrem
 import { updateOptions, updateColumnOptions, incrementReadyCtr } from '../logic/reducer';
 const allowedPageSizes = [5, 10, 20]
 
-function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOpts, columns}) {  
+function Grid({ dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOpts, columns }) {
 
   const onContentReady = useCallback((e) => {
-    if(initScrollOpts.readyCtr <= initScrollOpts.widgetCount) {
+    if (initScrollOpts.readyCtr <= initScrollOpts.widgetCount) {
       dispatch(incrementReadyCtr());
 
       if (initScrollOpts.readyCtr === initScrollOpts.widgetCount) {
@@ -15,54 +15,37 @@ function Grid({dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollOp
         })
       }
     }
-  },[initScrollOpts.readyCtr]); 
+  }, [initScrollOpts.readyCtr]);
 
   return (
     <DataGrid
-        ref={gridRef}
-        dataSource={dataSource}
-        keyExpr="ID"
-        showBorders={true}
-        height={440}
-        selectedRowKeys={syncedOpts.selectedRowKeys}
-        onSelectedRowKeysChange={(keys) => dispatch(updateOptions('selectedRowKeys', keys, gridName))}
-        onContentReady={onContentReady}
+      ref={gridRef}
+      dataSource={dataSource}
+      keyExpr="ID"
+      showBorders={true}
+      height={440}
+      selectedRowKeys={syncedOpts.selectedRowKeys}
+      onSelectedRowKeysChange={(keys) => dispatch(updateOptions('selectedRowKeys', keys, gridName))}
+      onContentReady={onContentReady}
     >
-        {/* <Column dataField="CompanyName" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.CompanyName}
-            filterValue={syncedOpts.column.filterValue.CompanyName} sortOrder={syncedOpts.column.sortOrder.CompanyName}
-            onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "CompanyName", filterValue, gridName))}
-            onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "CompanyName", selectedFilterOperation, gridName))}
-            onSortOrderChange={(sortOrder) => {dispatch(updateColumnOptions("sortOrder", "CompanyName", sortOrder, gridName))}}
-          />
-        <Column dataField="Address" selectedFilterOperation={syncedOpts.column.selectedFilterOperation.Address}
-            filterValue={syncedOpts.column.filterValue.Address} sortOrder={syncedOpts.column.sortOrder.Address}
-            onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", "Address", filterValue, gridName))}
-            onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", "Address", selectedFilterOperation, gridName))}
-            onSortOrderChange={(sortOrder) => {dispatch(updateColumnOptions("sortOrder", "Address", sortOrder, gridName))}}
-          /> */}
-        {columns.map(dataField => {
-          console.log(dataField);
-          return <Column dataField={dataField} key={dataField}
-            selectedFilterOperation={syncedOpts.column.selectedFilterOperation[dataField]}
-            filterValue={syncedOpts.column.filterValue[dataField]}
-            sortOrder={syncedOpts.column.sortOrder[dataField]}
-            onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", dataField, filterValue, gridName))}
-            onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", dataField, selectedFilterOperation, gridName))}
-            onSortOrderChange={(sortOrder) => {dispatch(updateColumnOptions("sortOrder", dataField, sortOrder, gridName))}}
-          
-          />
-        }
-          
-        )}
-
-        <Paging enabled={true} 
-          pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex} 
-          onPageSizeChange={(pageSize) => dispatch(updateOptions('pageSize', pageSize, gridName))}
-          onPageIndexChange={(pageIndex) => dispatch(updateOptions('pageIndex', pageIndex, gridName))}
-          />
-        <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
-        <FilterRow visible={true} />
-        <Selection mode="single" />
+      {columns.map(dataField =>
+        <Column dataField={dataField} key={dataField}
+          selectedFilterOperation={syncedOpts.column.selectedFilterOperation[dataField]}
+          filterValue={syncedOpts.column.filterValue[dataField]}
+          sortOrder={syncedOpts.column.sortOrder[dataField]}
+          onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", dataField, filterValue, gridName))}
+          onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", dataField, selectedFilterOperation, gridName))}
+          onSortOrderChange={(sortOrder) => { dispatch(updateColumnOptions("sortOrder", dataField, sortOrder, gridName)) }}
+        />
+      )}
+      <Paging enabled={true}
+        pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex}
+        onPageSizeChange={(pageSize) => dispatch(updateOptions('pageSize', pageSize, gridName))}
+        onPageIndexChange={(pageIndex) => dispatch(updateOptions('pageIndex', pageIndex, gridName))}
+      />
+      <Pager visible={true} showPageSizeSelector={true} allowedPageSizes={allowedPageSizes} showInfo={true} />
+      <FilterRow visible={true} />
+      <Selection mode="single" />
     </DataGrid>
   );
 }
