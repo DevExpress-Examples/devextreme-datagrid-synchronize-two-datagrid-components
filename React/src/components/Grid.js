@@ -35,7 +35,7 @@ function Grid({ dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollO
           sortOrder={syncedOpts.column.sortOrder[dataField]}
           onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", dataField, filterValue, gridName))}
           onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", dataField, selectedFilterOperation, gridName))}
-          onSortOrderChange={(sortOrder) => { dispatch(updateColumnOptions("sortOrder", dataField, sortOrder, gridName)) }}
+          onSortOrderChange={(sortOrder) =>  dispatch(updateColumnOptions("sortOrder", dataField, sortOrder, gridName)) }
         />
       )}
       <Paging enabled={true}
