@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import DataGrid, { Selection, Pager, Paging, Column, FilterRow } from 'devextreme-react/data-grid';
 import { updateOptions, updateColumnOptions, incrementReadyCtr } from '../logic/reducer';
 const allowedPageSizes = [5, 10, 20]
@@ -17,6 +17,25 @@ function Grid({ dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollO
     }
   }, [initScrollOpts.readyCtr]);
 
+  // Generate object of column handlers with the following structure
+  // columnHandlers[columnProp][dataField]
+  const columnHandlers = useMemo(() => {
+    const columnProps = ["filterValue", "sortOrder", "selectedFilterOperation"]
+    let handlers = {}
+
+    columnProps.forEach(colProp => {
+      handlers[colProp] = {}
+
+      // for each colProp, add a column with a handler
+      for(let colProp in handlers) {
+        columns.forEach(dataField => {
+            handlers[colProp][dataField] = (value) => dispatch(updateColumnOptions(colProp, dataField, value, gridName))
+        })
+      }
+    });
+    return handlers
+  }, [])
+
   return (
     <DataGrid
       ref={gridRef}
@@ -28,15 +47,16 @@ function Grid({ dataSource, syncedOpts, dispatch, gridName, gridRef, initScrollO
       onSelectedRowKeysChange={(keys) => dispatch(updateOptions('selectedRowKeys', keys, gridName))}
       onContentReady={onContentReady}
     >
-      {columns.map(dataField =>
-        <Column dataField={dataField} key={dataField}
+      {columns.map(dataField => (
+          <Column dataField={dataField} key={dataField}
           selectedFilterOperation={syncedOpts.column.selectedFilterOperation[dataField]}
           filterValue={syncedOpts.column.filterValue[dataField]}
           sortOrder={syncedOpts.column.sortOrder[dataField]}
-          onFilterValueChange={(filterValue) => dispatch(updateColumnOptions("filterValue", dataField, filterValue, gridName))}
-          onSelectedFilterOperationChange={(selectedFilterOperation) => dispatch(updateColumnOptions("selectedFilterOperation", dataField, selectedFilterOperation, gridName))}
-          onSortOrderChange={(sortOrder) =>  dispatch(updateColumnOptions("sortOrder", dataField, sortOrder, gridName)) }
+          onFilterValueChange={columnHandlers.filterValue[dataField]}
+          onSelectedFilterOperationChange={columnHandlers.selectedFilterOperation[dataField]}
+          onSortOrderChange={columnHandlers.sortOrder[dataField]}
         />
+        )
       )}
       <Paging enabled={true}
         pageSize={syncedOpts.pageSize} pageIndex={syncedOpts.pageIndex}
