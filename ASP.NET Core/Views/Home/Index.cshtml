@@ -1,29 +1,122 @@
-@using ASP_NET_Core.Models
+@using ASP.NET_Core.Models
+@using DevExtreme.AspNet.Mvc.Builders
 
-<h2>Home</h2>
+@{
+    int gridHeight = 440;
+    int initialPageSize = 10;
+    int[] allowedPageSizes = new[] { 5, 10, 20 };
+}
 
-@(Html.DevExtreme().DataGrid<SampleOrder>()
-    .ShowBorders(true)
-    .DataSource(d => d.Mvc().Controller("SampleData").LoadAction("Get").Key("OrderID"))
-    .Columns(columns => {
-        columns.AddFor(m => m.OrderID);
-        columns.AddFor(m => m.OrderDate);
-        columns.AddFor(m => m.CustomerName);
-        columns.AddFor(m => m.ShipCountry);
-        columns.AddFor(m => m.ShipCity);
-    })
-    .Paging(p => p.PageSize(10))
-    .FilterRow(f => f.Visible(true))
-    .HeaderFilter(f => f.Visible(true))
-    .GroupPanel(p => p.Visible(true))
-    .Grouping(g => g.AutoExpandAll(false))
-    .RemoteOperations(true)
-    .Summary(s => s
-        .TotalItems(totalItems => {
-            totalItems.AddFor(m => m.ShipCity).SummaryType(SummaryType.Count);
-        })
-        .GroupItems(groupItems => {
-            groupItems.Add().SummaryType(SummaryType.Count);
-        })
-    )
-)
+<div class="tables">
+    <div class="column">
+        @(Html.DevExtreme().DataGrid<Customer>()
+            .ID("dataGridMain")
+            .DataSource(d => d.Mvc().Controller("Customer").LoadAction("Get").Key("ID"))
+            .ShowBorders(true)
+            .Paging(p => p.PageSize(initialPageSize))
+            .Pager(p => p
+                .Visible(true)
+                .ShowPageSizeSelector(true)
+                .AllowedPageSizes(allowedPageSizes)
+                .ShowInfo(true)
+            )
+            .FilterRow(f => f.Visible(true))
+            .Selection(s => s.Mode(SelectionMode.Single))
+            .Columns(c =>
+            {
+                c.AddFor(c => c.CompanyName);
+                c.AddFor(c => c.City);
+                c.AddFor(c => c.State);
+                c.AddFor(c => c.Phone);
+                c.AddFor(c => c.Fax);
+            })
+            .Height(gridHeight)
+            .OnContentReady("(e) => onContentReady(e, true)")
+            .OnOptionChanged("mainOptionChanged")
+            .OnSelectionChanged("mainSelectionChanged")
+        )
+    </div>
+    <div class="column">
+        @(Html.DevExtreme().DataGrid<Customer>()
+            .ID("dataGridDependent")
+            .DataSource(d => d.Mvc().Controller("Customer").LoadAction("Get").Key("ID"))
+            .ShowBorders(true)
+            .Paging(p => p.PageSize(initialPageSize))
+            .Pager(p => p
+                .Visible(true)
+                .ShowPageSizeSelector(true)
+                .AllowedPageSizes(allowedPageSizes)
+                .ShowInfo(true)
+            )
+            .FilterRow(f => f.Visible(true))
+            .Selection(s => s.Mode(SelectionMode.Single))
+            .Columns(c =>
+            {
+                c.AddFor(c => c.CompanyName);
+                c.AddFor(c => c.City);
+                c.AddFor(c => c.State);
+                c.AddFor(c => c.Phone);
+                c.AddFor(c => c.Fax);
+            })
+            .Height(gridHeight)
+            .OnContentReady("(e) => onContentReady(e, false)")
+        )
+    </div>
+</div>
+
+<script>
+    let scrollableMain, scrollableDependent;
+    let prevColSorted;
+
+    function mainOptionChanged(e) {
+        const dataGridDependent = $("#dataGridDependent").dxDataGrid("instance");
+        if (e.fullName === "paging.pageSize") {
+            dataGridDependent.pageSize(e.value);
+        } else if (e.fullName === "paging.pageIndex") {
+            dataGridDependent.pageIndex(e.value);
+        }
+        else if (e.fullName.includes("sortOrder")) {
+            const match = e.fullName.match(/\[(\d+)\]/);
+            const colIdx = match ? parseInt(match[1], 10) : null;
+            if (colIdx) {
+                const dataField = e.component.columnOption(colIdx, 'dataField');
+                dataGridDependent.beginUpdate();
+                if (prevColSorted && prevColSorted !== dataField) {
+                    dataGridDependent.columnOption(prevColSorted, 'sortOrder', null);
+                }
+                dataGridDependent.columnOption(dataField, 'sortOrder', e.value);
+                dataGridDependent.endUpdate();
+                prevColSorted = dataField;
+            }
+        } else {
+            const opt = ['filterValue', 'selectedFilterOperation']
+            .find((d) => e.fullName.includes(d));
+            if (opt) {
+                const match = e.fullName.match(/\[(\d+)\]/);
+                const colIdx = match ? parseInt(match[1], 10) : null;
+                if (colIdx) {
+                    dataField = e.component.columnOption(colIdx, 'dataField');
+                    dataGridDependent.columnOption(dataField, opt, e.value);
+                }
+            }
+        }
+    }
+
+    function mainSelectionChanged(e) {
+        const dataGridDependent = $("dataGridDependent").dxDataGrid("instance");
+        dataGridDependent.selectRows(e.currentSelectedRowKeys)
+    }
+
+    function scrollDependent(scrollArg) {
+        scrollableDependent.scrollTo(scrollArg.scrollOffset);
+    }
+
+    function onContentReady(e, isMainDataGrid) {
+        if (isMainDataGrid) scrollableMain = e.component.getScrollable();
+        else scrollableDependent = e.component.getScrollable();
+        if (scrollableMain && scrollableDependent) {
+            scrollableMain.off('scroll', scrollDependent);
+            scrollableMain.on('scroll', scrollDependent);
+        }
+    }
+</script>

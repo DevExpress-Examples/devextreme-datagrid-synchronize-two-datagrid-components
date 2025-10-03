@@ -47,6 +47,10 @@ $(() => {
     });
   });
 
+  function scrollDependent(scrollArg) {
+    scrollableDependent.scrollTo(scrollArg.scrollOffset);
+  }
+
   function createDataGridOptions(isMainDataGrid) {
     return {
       dataSource: customers,
@@ -74,9 +78,8 @@ $(() => {
         if (isMainDataGrid) scrollableMain = e.component.getScrollable();
         else scrollableDependent = e.component.getScrollable();
         if (scrollableMain && scrollableDependent) {
-          scrollableMain.on('scroll', (scrollArg) => {
-            scrollableDependent.scrollTo(scrollArg.scrollOffset);
-          });
+          scrollableMain.off('scroll', scrollDependent);
+          scrollableMain.on('scroll', scrollDependent);
         }
       },
     };

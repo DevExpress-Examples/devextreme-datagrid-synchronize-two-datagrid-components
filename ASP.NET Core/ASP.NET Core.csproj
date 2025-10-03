@@ -18,6 +18,12 @@
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
   </Target>
+  <ItemGroup>
+    <Compile Remove="How-to-synchronize-two-datagrids\**" />
+    <Content Remove="How-to-synchronize-two-datagrids\**" />
+    <EmbeddedResource Remove="How-to-synchronize-two-datagrids\**" />
+    <None Remove="How-to-synchronize-two-datagrids\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Core" Version="25.1.3" />
