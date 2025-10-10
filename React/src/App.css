@@ -1,4 +1,11 @@
-.main {
+.tables {
+  display: flex;
   margin: 50px;
   width: 90vw;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  min-width: 0;
 }
