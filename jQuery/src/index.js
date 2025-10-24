@@ -18,7 +18,7 @@ $(() => {
         } else if (e.fullName.includes('sortOrder')) {
           const match = e.fullName.match(/\[(\d+)\]/);
           const colIdx = match ? parseInt(match[1], 10) : null;
-          if (colIdx) {
+          if (colIdx !== null) {
             const dataField = e.component.columnOption(colIdx, 'dataField');
             dataGridDependent.beginUpdate();
             if (prevColSorted && prevColSorted !== dataField) {
@@ -34,7 +34,7 @@ $(() => {
           if (opt) {
             const match = e.fullName.match(/\[(\d+)\]/);
             const colIdx = match ? parseInt(match[1], 10) : null;
-            if (colIdx) {
+            if (colIdx !== null) {
               dataField = e.component.columnOption(colIdx, 'dataField');
               dataGridDependent.columnOption(dataField, opt, e.value);
             }

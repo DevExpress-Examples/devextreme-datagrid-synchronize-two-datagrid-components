@@ -41,7 +41,7 @@ export class AppComponent {
     if (e.fullName.includes('sortOrder')) {
       const match = /\[(\d+)\]/.exec(e.fullName);
       const colIdx = match ? parseInt(match[1], 10) : null;
-      if (colIdx) {
+      if (colIdx !== null) {
         const dataField = e.component.columnOption(colIdx, 'dataField');
         this.dependentGrid.instance.clearSorting();
         this.columnSortOpts = {};
