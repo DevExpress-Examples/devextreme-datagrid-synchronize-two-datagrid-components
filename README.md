@@ -8,7 +8,7 @@
 
 This example demonstrates how to synchronize two DataGrids. When any of the following changes are performed on the first DataGrid, the changes are applied to the second DataGrid: selection, filtering, sorting, pageSize and scrolling.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-synchronize-two-datagrid-components&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=devextreme-datagrid-synchronize-two-datagrid-components&~~~was_helpful=no)
 
