@@ -88,12 +88,12 @@ function App(): JSX.Element {
     setSelectedRowKeys(e.selectedRowKeys);
   }, []);
 
-  const onPageSizeChanged = useCallback((pageSize: number) => {
-    setPageSize(pageSize);
+  const onPageSizeChanged = useCallback((newPageSize: number) => {
+    setPageSize(newPageSize);
   }, []);
 
-  const onPageIndexChanged = useCallback((pageIndex: number) => {
-    setPageIndex(pageIndex);
+  const onPageIndexChanged = useCallback((newPageIndex: number) => {
+    setPageIndex(newPageIndex);
   }, []);
 
   return (
